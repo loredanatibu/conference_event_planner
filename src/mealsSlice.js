@@ -5,10 +5,10 @@ export const mealsSlice = createSlice({
   name: 'meals',
   initialState: [
     // aici e fost skepsis, ca nu au definit de la inceput "type"
-    { name: 'Breakfast', cost: 50, selected: false,isMeal:true},
-    { name: 'High Tea', cost: 25, selected: false,isMeal:false},
-    { name: 'Lunch', cost: 65, selected: false,isMeal:true},
-    { name: 'Dinner', cost: 70, selected: false,isMeal:true},
+    { name: 'Breakfast', cost: 50, selected: false},
+    { name: 'High Tea', cost: 25, selected: false},
+    { name: 'Lunch', cost: 65, selected: false},
+    { name: 'Dinner', cost: 70, selected: false},
   ],
   reducers: {
     toggleMealSelection: (state, action) => {
