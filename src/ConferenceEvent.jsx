@@ -7,6 +7,7 @@ const ConferenceEvent = () => {
     const [showItems, setShowItems] = useState(false);
     const [numberOfPeople, setNumberOfPeople] = useState(1);
     const venueItems = useSelector((state) => state.venue);
+    const avItems = useSelector((state) => state.av);
     const dispatch = useDispatch();
     const remainingAuditoriumQuantity = 3 - venueItems.find(item => item.name === "Auditorium Hall (Capacity:200)").quantity;
 
@@ -131,7 +132,7 @@ const ConferenceEvent = () => {
                 </div>
                 <div className="total_cost">Total Cost:</div>
             </div>
-            {/* Meal Section */}
+            {/* Meals Selection */}
             <div id="meals" className="venue_container container_main">
                 <div className="text">
                     <h1>Meals Selection</h1>
