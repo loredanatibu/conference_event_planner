@@ -45,8 +45,12 @@ const ConferenceEvent = () => {
         };
 
     const getItemsFromTotalCost = () => {
-       
         const items = [];
+        venueItems.forEach((item) => {
+            if (item.quantity > 0) {
+                items.push({ ...item, type: "venue" });
+            }
+        });
     };
 
     const items = getItemsFromTotalCost();
@@ -66,7 +70,7 @@ const ConferenceEvent = () => {
             });
         } else if (section === "meals") {
             mealsItems.forEach((item) => {
-                if (item.selected && item.type==="mealForPeople") {
+                if (item.selected && item.isMeal) {
                   totalCost += item.cost * numberOfPeople;
                 }
               });
@@ -77,6 +81,12 @@ const ConferenceEvent = () => {
     const venueTotalCost = calculateTotalCost("venue");
     const avTotalCost = calculateTotalCost("av");
     const mealsTotalCost = calculateTotalCost("meals");
+
+    const totalCosts = {
+        venue: venueTotalCost,
+        av: avTotalCost,
+        meals: mealsTotalCost,
+    };
 
 
     const navigateToProducts = (idType) => {
